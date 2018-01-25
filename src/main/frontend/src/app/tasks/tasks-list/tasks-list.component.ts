@@ -11,7 +11,7 @@ import {ISubscription} from "rxjs/Subscription";
 })
 export class TasksListComponent implements OnInit, OnDestroy {
 
-    private tasks: Task[] = [];
+    public tasks: Task[] = [];
     private taskGetSubscription: ISubscription;
     private taskChangedSubscription: ISubscription;
     private taskAddedSubscription: ISubscription;
