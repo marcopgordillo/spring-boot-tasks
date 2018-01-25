@@ -1,5 +1,12 @@
 <ul class="list-group">
-    <li class="list-group-item">Item 1</li>
-    <li class="list-group-item">Item 2</li>
-    <li class="list-group-item">Item 3</li>
+    <li *ngFor="let task of tasks" class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="form-check">
+            <input type="checkbox"
+                   class="form-check-input"
+                   (change)="onTaskChange($event, task)"
+                   [checked]="task.completed" />
+            <label class="form-check-label" ngClass="{{task.completed ? 'name completed' : 'name'}}">{{task.name}}</label>
+        </div>
+        <span class="badge badge-pill {{getDueDateLabel(task)}}">{{task.dueDate}}</span>
+    </li>
 </ul>
